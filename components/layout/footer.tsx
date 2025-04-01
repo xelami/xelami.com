@@ -2,7 +2,6 @@ import { Github } from "lucide-react"
 import { Twitter } from "lucide-react"
 import Link from "next/link"
 import React from "react"
-import { Button } from "../ui/button"
 
 export default function Footer() {
   return (
