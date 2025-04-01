@@ -2,13 +2,17 @@ import { Github } from "lucide-react"
 import { Twitter } from "lucide-react"
 import Link from "next/link"
 import React from "react"
+import Logo from "@/components/ui/logo"
 
 export default function Footer() {
   return (
     <footer className="flex flex-col max-w-[1400px] w-full mx-auto p-4 sm:p-6 md:p-8 mt-24">
       <div className="flex justify-between w-full gap-8 lg:gap-12 mb-8 sm:mb-12">
         <div className="flex flex-col gap-4">
-          <h3 className="text-2xl font-bold">Xelami</h3>
+          <div className="flex items-center gap-2">
+            <Logo />
+            <h3 className="text-2xl font-bold">Xelami</h3>
+          </div>
           <p className="text-sm text-muted-foreground">
             Building Tomorrow, Today.
           </p>

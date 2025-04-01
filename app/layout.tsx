@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 })
 
 const ubuntuSans = Ubuntu({
-  weight: ["400", "500", "700"],
+  weight: ["300", "400", "500", "700"],
   variable: "--font-ubuntu-sans",
   subsets: ["latin"],
 })
