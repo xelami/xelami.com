@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col gap-4">
           <h3 className="text-2xl font-bold">Xelami</h3>
           <p className="text-sm text-muted-foreground">
-            Building apps that empower the future.
+            Building Tomorrow, Today.
           </p>
         </div>
       </div>
