@@ -2,46 +2,91 @@
 
 import React from "react"
 import { values } from "@/config/values"
-import { motion, AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
 
 export default function ValuesSection() {
   const [openId, setOpenId] = React.useState<number | null>(null)
+
   return (
-    <section id="values" className="flex flex-col py-4 lg:py-12">
-      <div className="flex flex-col gap-4">
-        {values.map((value, i) => (
-          <motion.div
-            initial="collapsed"
-            animate={openId === i ? "open" : "collapsed"}
-            exit="collapsed"
-            transition={{ duration: 0.2, ease: [0.04, 0.62, 0.23, 0.98] }}
-            key={i}
-            className="flex flex-col gap-4"
-          >
-            <div
-              className="flex items-center gap-4 transition-colors duration-200 hover:text-neutral-400 cursor-pointer"
-              onClick={() => setOpenId(openId === i ? null : i)}
-            >
-              <value.icon size={32} className="text-neutral-800" />
-              <span className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tighter">
-                {value.heading}
-              </span>
-            </div>
-            <AnimatePresence initial={false}>
-              {openId === i && (
-                <motion.p
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="ml-12 font-light text-xl sm:text-2xl lg:text-3xl max-w-[1200px]"
+    <section
+      id="values"
+      className="mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-8 sm:py-32"
+    >
+      <div className="grid gap-12 lg:grid-cols-[220px_1fr] lg:gap-20">
+        <div>
+          <div className="sticky top-32">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+              Our approach
+            </p>
+
+            <p className="mt-5 max-w-[180px] text-sm leading-6 text-muted-foreground">
+              Principles that shape what we make and how we work.
+            </p>
+          </div>
+        </div>
+
+        <div className="border-t border-black/10">
+          {values.map((value, i) => {
+            const isOpen = openId === i
+
+            return (
+              <motion.div key={i} layout className="border-b border-black/10">
+                <button
+                  type="button"
+                  onClick={() => setOpenId(isOpen ? null : i)}
+                  className="group flex w-full items-center gap-5 py-7 text-left sm:py-9"
+                  aria-expanded={isOpen}
                 >
-                  {value.description}
-                </motion.p>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        ))}
+                  <span className="w-8 shrink-0 text-xs font-medium text-muted-foreground">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  <span className="flex-1 text-3xl font-medium tracking-[-0.04em] transition-colors group-hover:text-muted-foreground sm:text-5xl lg:text-6xl">
+                    {value.heading}
+                  </span>
+
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-black/10 transition-all duration-300 ${
+                      isOpen
+                        ? "rotate-45 bg-foreground text-background"
+                        : "group-hover:bg-neutral-100"
+                    }`}
+                  >
+                    <ArrowUpRight size={16} />
+                  </span>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{
+                        duration: 0.35,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                      className="overflow-hidden"
+                    >
+                      <div className="grid pb-9 pl-[52px] pr-4 sm:grid-cols-[1fr_220px] sm:gap-12 sm:pr-16">
+                        <p className="max-w-2xl text-lg leading-8 text-muted-foreground sm:text-xl">
+                          {value.description}
+                        </p>
+
+                        <div className="hidden text-xs uppercase leading-5 tracking-[0.15em] text-muted-foreground sm:block">
+                          Principle
+                          <br />
+                          {String(i + 1).padStart(2, "0")}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

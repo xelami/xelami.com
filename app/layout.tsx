@@ -1,6 +1,7 @@
+// @ts-expect-error
+import "./globals.css"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono, Ubuntu, Ubuntu_Mono } from "next/font/google"
-import "./globals.css"
 import Navbar from "@/components/layout/navbar"
 import { ThemeProvider } from "next-themes"
 import Footer from "@/components/layout/footer"
@@ -40,7 +41,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`container mx-auto ${geistSans.variable} ${geistMono.variable} ${ubuntuSans.variable} ${ubuntuMono.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ubuntuSans.variable} ${ubuntuMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider
           attribute="class"
