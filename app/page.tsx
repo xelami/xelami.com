@@ -1,7 +1,6 @@
 import AboutSection from "@/components/sections/about"
 import ProductsSection from "@/components/sections/products"
 import ValuesSection from "@/components/sections/values"
-import Link from "next/link"
 import { ArrowUpRight, ArrowDown } from "lucide-react"
 
 export default function Home() {
@@ -86,7 +85,7 @@ export default function Home() {
               </p>
 
               <h2 className="max-w-4xl text-5xl font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl lg:text-8xl">
-                Let's make
+                Let&apos;s make
                 <br />
                 something good.
               </h2>
@@ -94,7 +93,7 @@ export default function Home() {
 
             <div className="lg:pb-1">
               <p className="mb-7 max-w-xs text-sm leading-6 text-white/55 dark:text-black/55">
-                Have an idea worth building? Tell us about it and let's see
+                Have an idea worth building? Tell us about it and let&apos;s see
                 where it goes.
               </p>
 

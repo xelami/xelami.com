@@ -15,7 +15,7 @@ export default function ProductsSection() {
             Selected work
           </p>
           <h2 className="mt-3 text-3xl font-medium tracking-[-0.04em] sm:text-5xl">
-            Things we've built.
+            Things we&apos;ve built.
           </h2>
         </div>
 

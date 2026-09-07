@@ -56,7 +56,7 @@ export default function Navbar() {
               href="/#contact"
               className="group flex items-center gap-2 rounded-full bg-foreground px-4 py-2.5 text-sm font-medium text-background transition-transform hover:scale-[1.02]"
             >
-              Let's talk
+              Let&apos;s talk
               <ArrowUpRight
                 size={14}
                 className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -108,7 +108,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="mt-2 flex items-center justify-between rounded-xl bg-foreground px-4 py-4 text-lg font-medium text-background"
               >
-                Let's talk
+                Let&apos;s talk
                 <ArrowUpRight size={18} />
               </Link>
             </div>

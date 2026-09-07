@@ -1,7 +1,7 @@
-// @ts-expect-error
-import "./globals.css"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono, Ubuntu, Ubuntu_Mono } from "next/font/google"
+// @ts-expect-error The stylesheet is processed by Next.js at build time.
+import "./globals.css"
 import Navbar from "@/components/layout/navbar"
 import { ThemeProvider } from "next-themes"
 import Footer from "@/components/layout/footer"
